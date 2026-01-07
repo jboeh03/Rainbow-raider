@@ -1,0 +1,26 @@
+{
+  "name": "rainbow-fish-webapp",
+  "version": "1.0.0",
+  "description": "MVP webapp for Rainbow Fish $fish memecoin community engagement",
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "start:backend": "cd backend && npm start",
+    "start:frontend": "cd frontend && npm start",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "build": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "rainbow-fish",
+    "memecoin",
+    "twitter",
+    "memes",
+    "community"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

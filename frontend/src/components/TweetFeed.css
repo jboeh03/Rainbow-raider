@@ -1,0 +1,135 @@
+.tweet-feed-card {
+  height: fit-content;
+  max-height: 800px;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-form {
+  margin-bottom: 15px;
+}
+
+.auto-refresh {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.auto-refresh label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.auto-refresh input[type="checkbox"] {
+  cursor: pointer;
+}
+
+.tweets-container {
+  overflow-y: auto;
+  max-height: 600px;
+  padding-right: 5px;
+}
+
+.tweets-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.tweets-container::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.tweets-container::-webkit-scrollbar-thumb {
+  background: var(--rainbow-purple);
+  border-radius: 10px;
+}
+
+.tweet-card {
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.tweet-card:hover {
+  border-color: var(--rainbow-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(200, 121, 255, 0.3);
+}
+
+.tweet-card.selected {
+  border-color: var(--rainbow-pink);
+  background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(200, 121, 255, 0.1));
+}
+
+.tweet-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.tweet-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--rainbow-blue);
+}
+
+.tweet-author {
+  flex: 1;
+}
+
+.author-name {
+  font-weight: 600;
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.author-username {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.tweet-time {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.tweet-content {
+  color: var(--text-primary);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.tweet-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.tweet-metrics {
+  display: flex;
+  gap: 15px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.no-tweets {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+}

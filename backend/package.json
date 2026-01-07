@@ -1,0 +1,25 @@
+{
+  "name": "rainbow-fish-backend",
+  "version": "1.0.0",
+  "description": "Backend for Rainbow Fish $fish memecoin community webapp",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": ["rainbow-fish", "memecoin", "twitter", "memes"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "multer": "^1.4.5-lts.1",
+    "axios": "^1.6.2",
+    "twitter-api-v2": "^1.15.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
