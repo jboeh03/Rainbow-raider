@@ -2,6 +2,12 @@
 
 An MVP webapp for the Rainbow Fish $fish memecoin community engagement on X (Twitter). Built with React, Node.js, and MongoDB.
 
+## 🚀 Quick Links
+
+- **[Quick Start Guide](QUICKSTART.md)** - Run locally in 5 minutes
+- **[MongoDB Atlas Setup](MONGODB_ATLAS_SETUP.md)** - Free database setup
+- **[Deployment Guide](DEPLOYMENT.md)** - Deploy for FREE (Render + Vercel)
+
 ## Features
 
 - **Real-time Tweet Tracking** 🐦
@@ -309,17 +315,48 @@ Edit `backend/src/services/recommendationService.js` to customize the keyword ma
 
 ## Deployment
 
-### Backend Deployment (e.g., Heroku, Railway)
+For detailed deployment instructions, see **[DEPLOYMENT.md](DEPLOYMENT.md)**
 
-1. Set environment variables on your hosting platform
-2. Ensure MongoDB Atlas is configured
-3. Update FRONTEND_URL to your deployed frontend URL
+### Quick Deploy Summary
 
-### Frontend Deployment (e.g., Vercel, Netlify)
+**FREE Hosting Options:**
 
-1. Update `REACT_APP_API_URL` to your deployed backend URL
-2. Run `npm run build` to create production build
-3. Deploy the `build` folder
+1. **Backend (Render)** - https://render.com
+   - 750 hours/month free
+   - Auto-deploy from GitHub
+   - See [DEPLOYMENT.md](DEPLOYMENT.md) for step-by-step guide
+
+2. **Frontend (Vercel)** - https://vercel.com
+   - Unlimited deployments
+   - Auto-deploy from GitHub
+   - See [DEPLOYMENT.md](DEPLOYMENT.md) for step-by-step guide
+
+3. **Database (MongoDB Atlas)** - https://mongodb.com/cloud/atlas
+   - 512MB free tier
+   - See [MONGODB_ATLAS_SETUP.md](MONGODB_ATLAS_SETUP.md) for setup guide
+
+**Alternative Options:**
+- Railway (Backend + Frontend in one place)
+- Fly.io (Backend)
+- Netlify (Frontend alternative to Vercel)
+- Docker + Docker Compose (Self-hosted)
+
+### Docker Deployment
+
+Run with Docker Compose:
+```bash
+# Set your Twitter token
+export TWITTER_BEARER_TOKEN=your_token_here
+
+# Start all services (MongoDB, Backend, Frontend)
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+
+# Stop services
+docker-compose down
+```
 
 ## Security Notes
 

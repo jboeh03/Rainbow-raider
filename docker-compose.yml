@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # MongoDB Service
+  mongodb:
+    image: mongo:7
+    container_name: rainbow-fish-mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: rainbow-fish
+    volumes:
+      - mongodb_data:/data/db
+    networks:
+      - rainbow-fish-network
+
+  # Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: rainbow-fish-backend
+    restart: unless-stopped
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongodb:27017/rainbow-fish
+      - TWITTER_BEARER_TOKEN=${TWITTER_BEARER_TOKEN}
+      - FRONTEND_URL=http://localhost:3000
+    depends_on:
+      - mongodb
+    volumes:
+      - ./backend/uploads:/app/uploads
+    networks:
+      - rainbow-fish-network
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - REACT_APP_API_URL=http://localhost:5000/api
+    container_name: rainbow-fish-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - rainbow-fish-network
+
+networks:
+  rainbow-fish-network:
+    driver: bridge
+
+volumes:
+  mongodb_data:
+    driver: local
